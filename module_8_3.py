@@ -9,8 +9,10 @@ class Car:
             self.__numbers = numbers
 
     def __is_valid_vin(self, vin_number):
-        if not isinstance(vin_number, int) or vin_number not in range(1_000_000, 10_000_000):
+        if not isinstance(vin_number, int):
             raise IncorrectVinNumber('Некорректный тип vin номер')
+        elif vin_number not in range(1_000_000, 10_000_000):
+            raise IncorrectVinNumber('Неверный диапазон для vin номера')
         return True
 
     def __is_valid_number(self, numbers):
